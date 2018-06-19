@@ -1,3 +1,3 @@
-# Recaman Sequence
+# Recamán Sequence
 
 To do.
