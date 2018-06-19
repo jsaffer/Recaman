@@ -3,7 +3,7 @@ from matplotlib import patches as pat
 from matplotlib import pyplot as plt
 import numpy as np
 
-nmax = 60
+nmax = 66
 
 seq = [0]
 
@@ -23,7 +23,6 @@ for i in range(len(seq) - 1):
 ax.set_xlim(0, max(seq))
 ax.set_ylim(-0.5*max(seq), 0.5*max(seq))
 ax.set_aspect('equal')
-plt.text(0, -45, 'Coded by J. Saffer', fontsize = 8)
-plt.scatter(seq, -40*np.ones_like(seq), marker = 'D', c = np.linspace(0, nmax, nmax), cmap = 'viridis')
+#plt.scatter(seq, -40*np.ones_like(seq), marker = 'D', c = np.linspace(0, nmax, nmax), cmap = 'viridis')
 plt.savefig('recaman.pdf')
 plt.show()
