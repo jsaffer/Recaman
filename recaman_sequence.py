@@ -16,13 +16,14 @@ for i in range(1, nmax):
 fig = plt.figure()
 ax = fig.add_subplot(111)
 for i in range(len(seq) - 1):
-    e1 = pat.Arc((0.5*(seq[i] + seq[i+1]), 0), abs(seq[i+1] - seq[i]), abs(seq[i+1] - seq[i]), (((-1)**i+1)*0.5)*180, 180, linewidth = 1, fill = False)
+    e1 = pat.Arc((0.5*(seq[i] + seq[i+1]), 0), abs(seq[i+1] - seq[i]), abs(seq[i+1] - seq[i]), (((-1)**(i+1)+1)*0.5)*180, 180, linewidth = 1, fill = False)
 
     ax.add_patch(e1)
 
-ax.set_xlim(0, max(seq))
-ax.set_ylim(-0.5*max(seq), 0.5*max(seq))
+edge_factor = 1.05
+ax.set_xlim(-(edge_factor-1)*max(seq), edge_factor*max(seq))
+ax.set_ylim(-0.5*edge_factor*nmax, 0.5*edge_factor*nmax)
 ax.set_aspect('equal')
-#plt.scatter(seq, -40*np.ones_like(seq), marker = 'D', c = np.linspace(0, nmax, nmax), cmap = 'viridis')
+#plt.scatter(seq, -0.5*(edge_factor*nmax)*np.ones_like(seq)+1, marker = 'D', c = np.linspace(0, nmax, nmax), cmap = 'viridis')
 plt.savefig('recaman.pdf')
 plt.show()
